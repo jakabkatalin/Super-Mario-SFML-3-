@@ -1,9 +1,6 @@
-﻿#include "Animation.hpp"
+﻿#include "../include/Animation.hpp"
 #include <algorithm>
 #include <SFML/Graphics.hpp>
-//frame by frame mapping: sincronizarea temporala(contor intern decide exact cadn trebuie schimbat cadrul), gestionarea atlasului de texturi, modularitatea
-//tot ce se misca vizual, decupeaza cadre dintr-o textură mare
-// Constructorul clasei Animation: inițializează animația cu lățimea cadrului, locația texturii și viteza animației
 Animation::Animation(const unsigned short i_frame_width, const std::string& i_texture_location, const unsigned short i_animation_speed) :
     flipped(false),
     animation_iterator(0),
@@ -14,8 +11,8 @@ Animation::Animation(const unsigned short i_frame_width, const std::string& i_te
     sprite(texture)
 {
 	//încarcăm textura și calculăm numărul total de cadre
-    if (texture.loadFromFile(i_texture_location)) {
-		total_frames = static_cast<unsigned short>(texture.getSize().x / frame_width);//!!! constructor total_frames initializarea valida a objectului 
+    if (texture.loadFromFile("assets /" + i_texture_location)) {
+		total_frames = static_cast<unsigned short>(texture.getSize().x / frame_width);
     }
 }
 //am abstractizat procesul de miscare a imaginii intr-o singura entitate usor de folosit
@@ -24,7 +21,7 @@ void Animation::draw(sf::RenderWindow& i_window) {
 		//setăm dreptunghiul texturii pentru cadrul curent
         sprite.setTextureRect(sf::IntRect(
 			{ static_cast<int>(current_frame * frame_width), 0 },//x-ul se muta la fiecare cadru
-            { static_cast<int>(frame_width), static_cast<int>(texture.getSize().y) }//dim cadru
+            { static_cast<int>(frame_width), static_cast<int>(texture.getSize().y) }
         ));
     }
     else {
@@ -56,7 +53,7 @@ void Animation::set_position(const short i_x, const short i_y) {
 }
 // setează locația texturii și recalculăm numărul total de cadre
 void Animation::set_texture_location(const std::string& i_texture_location) {
-    if (texture.loadFromFile(i_texture_location)) {
+    if (texture.loadFromFile("assets/" + i_texture_location)) {
         total_frames = static_cast<unsigned short>(texture.getSize().x / frame_width);
     }
 }

@@ -2,12 +2,12 @@
 #include <chrono>
 #include <SFML/Graphics.hpp>
 
-#include "Animation.hpp"
-#include "Global.hpp"
-#include "MapManager.hpp"
-#include "Mushroom.hpp"
-#include "Mario.hpp"
-#include "Enemy.hpp"
+#include "../include/Animation.hpp"
+#include "../include/Global.hpp"
+#include "../include/MapManager.hpp"
+#include "../include/Mushroom.hpp"
+#include "../include/Mario.hpp"
+#include "../include/Enemy.hpp"
 
 
 Enemy::Enemy(const float i_x, const float i_y) :

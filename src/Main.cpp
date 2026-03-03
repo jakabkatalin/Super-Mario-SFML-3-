@@ -5,12 +5,12 @@
 #include <memory>
 #include <algorithm>
 
-#include "Global.hpp"
-#include "MapManager.hpp"
-#include "Mario.hpp"
-#include "Enemy.hpp"
-#include "ConvertSketch.hpp"
-#include "TextManager.hpp"
+#include "../include/Global.hpp"
+#include "../include/MapManager.hpp"
+#include "../include/Mario.hpp"
+#include "../include/Enemy.hpp"
+#include "../include/ConvertSketch.hpp"
+#include "../include/TextManager.hpp"
 // punctul de intrare si bucla principala a jocului
 int main()
 {

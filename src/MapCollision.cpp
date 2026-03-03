@@ -4,8 +4,8 @@
 #include <vector>
 #include <cmath>
 
-#include "Global.hpp"
-#include "MapCollision.hpp"
+#include "../include/Global.hpp"
+#include "../include/MapCollision.hpp"
 //VERIFICA DACA PIXELII LA CARE SE AFLA MARIO SE SUPRAPUN CU CELULELE DATE/BLOC SOLID , RETURNEAZĂ UN BYTE CU INFORMAȚII DESPRE COLIZIUNE
 unsigned char map_collision(float i_x, float i_y, const std::vector<Cell>& i_check_cells, const Map& i_map)
 {

@@ -4,11 +4,11 @@
 #include <algorithm>
 #include <SFML/Graphics.hpp>
 
-#include "Animation.hpp"
-#include "Global.hpp"
-#include "MapManager.hpp"
-#include "Enemy.hpp"
-#include "Mario.hpp"
+#include "../include/Animation.hpp"
+#include "../include/Global.hpp"
+#include "../include/MapManager.hpp"
+#include "../include/Enemy.hpp"
+#include "../include/Mario.hpp"
 //creierul nivelului, citeste harta , plaseza blocurile, gestioneaza si calculeaza coliziunile 
 //Constructorul: inițializează animațiile pentru monede și blocuri și încarcă textura hărții
 MapManager::MapManager() :

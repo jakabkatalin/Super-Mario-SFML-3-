@@ -13,19 +13,19 @@ Koopa::Koopa(const bool i_underground, const float i_x, const float i_y) :
 	underground(i_underground),
 	state(0),
 	get_out_timer(KOOPA_GET_OUT_DURATION),
-	get_out_animation(CELL_SIZE, "KoopaGetOut.png", KOOPA_GET_OUT_ANIMATION_SPEED),
-	walk_animation(CELL_SIZE, "KoopaWalk.png", KOOPA_WALK_ANIMATION_SPEED),
+	get_out_animation(CELL_SIZE, "assets/KoopaGetOut.png", KOOPA_GET_OUT_ANIMATION_SPEED),
+	walk_animation(CELL_SIZE, "assets/KoopaWalk.png", KOOPA_WALK_ANIMATION_SPEED),
 	sprite(texture)
 {
 	horizontal_speed = -KOOPA_SPEED;
 
 	if (0 == underground) {
-		texture.loadFromFile("KoopaShell.png");
+		texture.loadFromFile("assets/KoopaShell.png");
 	}
 	else {
-		texture.loadFromFile("UndergroundKoopaShell.png");
-		get_out_animation.set_texture_location("UndergroundKoopaGetOut.png");
-		walk_animation.set_texture_location("UndergroundKoopaWalk.png");
+		texture.loadFromFile("assets/UndergroundKoopaShell.png");
+		get_out_animation.set_texture_location("assets/UndergroundKoopaGetOut.png");
+		walk_animation.set_texture_location("assets/UndergroundKoopaWalk.png");
 	}
 }
 
@@ -40,7 +40,7 @@ void Koopa::die(const unsigned char i_death_type) {
 	else if (2 == i_death_type) {
 		no_collision_dying = 1;
 		vertical_speed = 0.5f * MARIO_JUMP_SPEED;
-		texture.loadFromFile(underground ? "UndergroundKoopaDeath.png" : "KoopaDeath.png");
+		texture.loadFromFile(underground ? "assets/UndergroundKoopaDeath.png" : "assets/KoopaDeath.png");
 	}
 }
 

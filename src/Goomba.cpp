@@ -4,32 +4,32 @@
 #include <algorithm>
 #include <SFML/Graphics.hpp>
 
-#include "Animation.hpp"
-#include "Global.hpp"
-#include "MapManager.hpp"
-#include "Mushroom.hpp"
-#include "Mario.hpp"
-#include "Enemy.hpp"
-#include "Goomba.hpp"
+#include "../include/Animation.hpp"
+#include "../include/Global.hpp"
+#include "../include/MapManager.hpp"
+#include "../include/Mushroom.hpp"
+#include "../include/Mario.hpp"
+#include "../include/Enemy.hpp"
+#include "../include/Goomba.hpp"
 
 Goomba::Goomba(const bool i_underground, const float i_x, const float i_y) :
 	Enemy(i_x, i_y),
 	no_collision_dying(0),
 	underground(i_underground),
 	death_timer(GOOMBA_DEATH_DURATION),
-	walk_animation(CELL_SIZE, "GoombaWalk.png", GOOMBA_WALK_ANIMATION_SPEED),
+	walk_animation(CELL_SIZE, "assets/GoombaWalk.png", GOOMBA_WALK_ANIMATION_SPEED),
 	sprite(texture)
 {
 	horizontal_speed = -GOOMBA_SPEED; //merge stanga la început
 
 	if (0 == underground)
 	{
-		texture.loadFromFile("GoombaDeath0.png");
+		texture.loadFromFile("assets/GoombaDeath0.png");
 	}
 	else
 	{
-		texture.loadFromFile("UndergroundGoombaDeath0.png");
-		walk_animation.set_texture_location("UndergroundGoombaWalk.png");
+		texture.loadFromFile("assets/UndergroundGoombaDeath0.png");
+		walk_animation.set_texture_location("assets/UndergroundGoombaWalk.png");
 	}
 }
 //verifică dacă Goomba este mort (dacă i_deletion este adevărat, verifică doar dacă este marcat ca mort)
@@ -64,9 +64,9 @@ void Goomba::die(const unsigned char i_death_type)
 			no_collision_dying = 1;
 			vertical_speed = 0.5f * MARIO_JUMP_SPEED;
 			if (0 == underground)
-				texture.loadFromFile("GoombaDeath1.png");
+				texture.loadFromFile("assets/GoombaDeath1.png");
 			else
-				texture.loadFromFile("UndergroundGoombaDeath1.png");
+				texture.loadFromFile("assets/UndergroundGoombaDeath1.png");
 		}
 		break;
 	}
