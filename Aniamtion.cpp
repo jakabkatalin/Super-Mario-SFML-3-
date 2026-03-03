@@ -1,4 +1,4 @@
-﻿#include "../include/Animation.hpp"
+﻿#include "Animation.hpp"
 #include <algorithm>
 #include <SFML/Graphics.hpp>
 Animation::Animation(const unsigned short i_frame_width, const std::string& i_texture_location, const unsigned short i_animation_speed) :

@@ -4,19 +4,19 @@
 #include <algorithm>
 #include <SFML/Graphics.hpp>
 
-#include "../include/Animation.hpp"
-#include "../include/Global.hpp"
-#include "../include/MapManager.hpp"
-#include "../include/Enemy.hpp"
-#include "../include/Mario.hpp"
+#include "Animation.hpp"
+#include "Global.hpp"
+#include "MapManager.hpp"
+#include "Enemy.hpp"
+#include "Mario.hpp"
 //creierul nivelului, citeste harta , plaseza blocurile, gestioneaza si calculeaza coliziunile 
 //Constructorul: inițializează animațiile pentru monede și blocuri și încarcă textura hărții
 MapManager::MapManager() :
-	coin_animation(CELL_SIZE, "Coin.png", COIN_ANIMATION_SPEED),
-	question_block_animation(CELL_SIZE, "QuestionBlock.png", QUESTION_BLOCK_ANIMATION_SPEED),
+	coin_animation(CELL_SIZE, "assets/Coin.png", COIN_ANIMATION_SPEED),
+	question_block_animation(CELL_SIZE, "assets/QuestionBlock.png", QUESTION_BLOCK_ANIMATION_SPEED),
 	cell_sprite(map_texture)
 {
-	map_texture.loadFromFile("Map.png");
+	map_texture.loadFromFile("assets/Map.png");
 }
 // Returnează înălțimea schiței hărții
 unsigned short MapManager::get_map_sketch_height() const
@@ -219,7 +219,7 @@ void MapManager::set_map_size(const unsigned short i_new_size)
 void MapManager::update_map_sketch(const unsigned char i_current_level)
 {
 	// in loc sa scriu manual coordonatele fiecarui bloc, creez un sistem care citeste un fisier de tip imagine 
-	map_sketch.loadFromFile("LevelSketch" + std::to_string(static_cast<unsigned short>(i_current_level)) + ".png");
+	map_sketch.loadFromFile("assets/LevelSketch" + std::to_string(static_cast<unsigned short>(i_current_level)) + ".png");
 }
 // Actualizează pozițiile monedelor și particulelor
 void MapManager::update()

@@ -4,13 +4,13 @@
 #include <algorithm>
 #include <SFML/Graphics.hpp>
 
-#include "../include/Animation.hpp"
-#include "../include/Global.hpp"
-#include "../include/MapManager.hpp"
-#include "../include/Mushroom.hpp"
-#include "../include/Mario.hpp"
-#include "../include/Enemy.hpp"
-#include "../include/Goomba.hpp"
+#include "Animation.hpp"
+#include "Global.hpp"
+#include "MapManager.hpp"
+#include "Mushroom.hpp"
+#include "Mario.hpp"
+#include "Enemy.hpp"
+#include "Goomba.hpp"
 
 Goomba::Goomba(const bool i_underground, const float i_x, const float i_y) :
 	Enemy(i_x, i_y),

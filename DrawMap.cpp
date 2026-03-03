@@ -1,7 +1,7 @@
 ﻿#include <cmath>
 #include <SFML/Graphics.hpp>
-#include "../include/DrawMap.hpp"
-#include "../include/Global.hpp"
+#include "DrawMap.hpp"
+#include "Global.hpp"
 // Desenează harta pe fereastra dată, folosind schița hărții și textura hărții
 void draw_map(unsigned i_view_x, const sf::Image& i_map_sketch, sf::RenderWindow& i_window, const sf::Texture& i_map_texture, const Map& i_map)
 {

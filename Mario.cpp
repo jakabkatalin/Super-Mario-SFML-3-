@@ -28,23 +28,23 @@ Mario::Mario() :
 	death_timer(MARIO_DEATH_DURATION),
 	growth_timer(0),
 	invincible_timer(0),
-	big_walk_animation(CELL_SIZE, "BigMarioWalk.png", MARIO_WALK_ANIMATION_SPEED),
-	walk_animation(CELL_SIZE, "MarioWalk.png", MARIO_WALK_ANIMATION_SPEED)
+	big_walk_animation(CELL_SIZE, "assets/BigMarioWalk.png", MARIO_WALK_ANIMATION_SPEED),
+	walk_animation(CELL_SIZE, "assets/MarioWalk.png", MARIO_WALK_ANIMATION_SPEED)
 {
 	//sunetele
-	if (coin_buffer.loadFromFile("coin.wav")) {
+	if (coin_buffer.loadFromFile("assets/coin.wav")) {
 		coin_sound.emplace(coin_buffer);
 	}
 
-	if (death_buffer.loadFromFile("death.wav")) {
+	if (death_buffer.loadFromFile("assets/death.wav")) {
 		death_sound.emplace(death_buffer);
 	}
 
-	mushroom_texture.loadFromFile("Mushroom.png");
+	mushroom_texture.loadFromFile("assets/Mushroom.png");
 	//preîncărcarea texturilor
 	std::vector<std::string> textures = {
-		"MarioIdle.png", "MarioJump.png", "MarioBrake.png", "MarioDeath.png",
-		"BigMarioIdle.png", "BigMarioJump.png", "BigMarioBrake.png", "BigMarioCrouch.png", "BigMarioDeath.png"
+		"assets/MarioIdle.png", "assets/MarioJump.png", "assets/MarioBrake.png", "assets/MarioDeath.png",
+		"assets/BigMarioIdle.png", "assets/BigMarioJump.png", "assets/BigMarioBrake.png", "assets/BigMarioCrouch.png", "assets/BigMarioDeath.png"
 	};
 
 	for (const std::string& name : textures) {
@@ -54,8 +54,8 @@ Mario::Mario() :
 		}
 	}
 
-	if (texture_cache.count("MarioIdle.png")) {
-		sprite.emplace(texture_cache["MarioIdle.png"]);
+	if (texture_cache.count("assets/MarioIdle.png")) {
+		sprite.emplace(texture_cache["assets/MarioIdle.png"]);
 	}
 }
 //schimbă textura sprite-ului 
@@ -78,7 +78,7 @@ void Mario::die(const bool i_instant_death) {
 	if (!dead) {
 		if (i_instant_death) {
 			dead = true;
-			set_texture(powerup_state == 0 ? "MarioDeath.png" : "BigMarioDeath.png");
+			set_texture(powerup_state == 0 ? "assets/MarioDeath.png" : "assets/BigMarioDeath.png");
 			if (death_sound.has_value()) {
 				death_sound->play();
 			}
@@ -86,7 +86,7 @@ void Mario::die(const bool i_instant_death) {
 		else if (growth_timer == 0 && invincible_timer == 0) {
 			if (powerup_state == 0) {
 				dead = true;
-				set_texture("MarioDeath.png");
+				set_texture("assets/MarioDeath.png");
 				if (death_sound.has_value()) {
 					death_sound->play();
 				}
@@ -112,7 +112,7 @@ void Mario::reset(bool i_full_reset) {
 	jump_timer = 0; powerup_state = 0; death_timer = MARIO_DEATH_DURATION;
 	growth_timer = 0; invincible_timer = 0;
 	mushrooms.clear();
-	set_texture("MarioIdle.png");
+	set_texture("assets/MarioIdle.png");
 	if (i_full_reset) { x = 0; y = 0; respawn_x = 0; respawn_y = 0; }
 	else { x = std::max(0.0f, respawn_x - CELL_SIZE); y = respawn_y; }
 }
@@ -127,13 +127,13 @@ void Mario::draw(sf::RenderWindow& i_window) {
 		if (!dead) {
 			if (draw_big) {
 				//logica pentru desenarea lui Big Mario
-				if (crouching) set_texture("BigMarioCrouch.png");
-				else if (!on_ground) set_texture("BigMarioJump.png");
+				if (crouching) set_texture("assets/BigMarioCrouch.png");
+				else if (!on_ground) set_texture("assets/BigMarioJump.png");
 				else {
-					if (horizontal_speed == 0) set_texture("BigMarioIdle.png");
+					if (horizontal_speed == 0) set_texture("assets/BigMarioIdle.png");
 					else if ((horizontal_speed > 0 && (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))) ||
 						(horizontal_speed < 0 && (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)))) {
-						set_texture("BigMarioBrake.png");
+						set_texture("assets/BigMarioBrake.png");
 					}
 					else {
 						draw_sprite = false;
@@ -146,12 +146,12 @@ void Mario::draw(sf::RenderWindow& i_window) {
 			else {
 				//logica pentru desenarea lui Small Mario
 				float offset_y = (growth_timer > 0 || powerup_state > 0) ? (float)CELL_SIZE : 0.0f;
-				if (!on_ground) set_texture("MarioJump.png");
+				if (!on_ground) set_texture("assets/MarioJump.png");
 				else {
-					if (horizontal_speed == 0) set_texture("MarioIdle.png");
+					if (horizontal_speed == 0) set_texture("assets/MarioIdle.png");
 					else if ((horizontal_speed > 0 && (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))) ||
 						(horizontal_speed < 0 && (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)))) {
-						set_texture("MarioBrake.png");
+						set_texture("assets/MarioBrake.png");
 					}
 					else {
 						draw_sprite = false;
@@ -162,7 +162,7 @@ void Mario::draw(sf::RenderWindow& i_window) {
 				}
 			}
 		}
-		else set_texture("MarioDeath.png");
+		else set_texture("assets/MarioDeath.png");
 
 		if (draw_sprite) {
 			const sf::Texture& current_tex = sprite->getTexture();

@@ -157,6 +157,48 @@
     <ClInclude Include="Mushroom.hpp" />
     <ClInclude Include="TextManager.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="BigMarioBrake.png" />
+    <Image Include="BigMarioCrouch.png" />
+    <Image Include="BigMarioDeath.png" />
+    <Image Include="BigMarioIdle.png" />
+    <Image Include="BigMarioJump.png" />
+    <Image Include="BigMarioWalk.png" />
+    <Image Include="block.png" />
+    <Image Include="Coin.png" />
+    <Image Include="flag.png" />
+    <Image Include="GoombaDeath.png" />
+    <Image Include="GoombaDeath0.png" />
+    <Image Include="GoombaDeath1.png" />
+    <Image Include="GoombaWalk.png" />
+    <Image Include="KoopaDeath.png" />
+    <Image Include="KoopaGetOut.png" />
+    <Image Include="KoopaShell.png" />
+    <Image Include="KoopaWalk.png" />
+    <Image Include="LevelSketch0.png" />
+    <Image Include="LevelSketch1.png" />
+    <Image Include="Map.png" />
+    <Image Include="MapSketch.png" />
+    <Image Include="mario.png" />
+    <Image Include="MarioBrake.png" />
+    <Image Include="MarioDeath.png" />
+    <Image Include="MarioIdle.png" />
+    <Image Include="MarioJump.png" />
+    <Image Include="MarioWalk.png" />
+    <Image Include="Mushroom.png" />
+    <Image Include="QuestionBlock.png" />
+    <Image Include="UndergroundGoombaDeath0.png" />
+    <Image Include="UndergroundGoombaDeath1.png" />
+    <Image Include="UndergroundGoombaWalk.png" />
+    <Image Include="UndergroundKoopaDeath.png" />
+    <Image Include="UndergroundKoopaGetOut.png" />
+    <Image Include="UndergroundKoopaShell.png" />
+    <Image Include="UndergroundKoopaWalk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="coin.wav" />
+    <Media Include="death.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
